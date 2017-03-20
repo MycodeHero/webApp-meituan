@@ -4,11 +4,11 @@ var ReactDom = require('react-dom');
 var App = React.createClass({
     render: function () {
         return (
-            <h1>ddd</h1>
+            <h1>We are Team</h1>
         )
     }
 });
 ReactDom.render(
     <App/>,
-    document.getElementById('root')
+    document.getElementById('appWrap')
 )

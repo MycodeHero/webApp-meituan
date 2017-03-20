@@ -1,10 +1,11 @@
 var webpack = require('webpack');
+var jQuery = require('jquery');
 // var ExtractTextPlugin = require("extract-text-webpack-plugin");
-// var providePlugin = new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery'});
+var providePlugin = new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery'});
 module.exports = {
     entry: './src/js/entry.js',
     output: {
-        path: './static/',
+        // path: './static/',
         publicPath: 'http://localhost:8001/static/',
         filename: 'index.js'
     },
@@ -35,7 +36,7 @@ module.exports = {
         inline: true,//注意：不写hot：true，否则浏览器无法自动更新；也不要写colors：true，progress：true等webpack2.x已不支持这些
     },
     plugins: [
-        // providePlugin,
+        providePlugin,
         // new webpack.NoEmitOnErrorsPlugin(),
         // new ExtractTextPlugin({
             // filename: 'http://localhost:8080/static/bundle.css'
