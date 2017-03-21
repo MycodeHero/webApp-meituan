@@ -1,5 +1,6 @@
 require('../less/init.less');
 require('../less/index.less');
+import $ from 'n-zepto'
 var Discount = require('./component/component0-2/Discount.js');
 var React = require('react');
 var ReactDom = require('react-dom');
