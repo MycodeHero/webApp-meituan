@@ -16,7 +16,7 @@ var Title = React.createClass({
     },
     render: function(){
          return (
-            <p style={{textAlign:'center',paddingTop:'9px'}}>—- <span style={this.props.style}>优惠专区</span> -—</p>
+            <p style={{textAlign:'center',paddingTop:'9px'}}>— <span style={this.props.style}>优惠专区</span> —</p>
         )
     }
 })
