@@ -10027,7 +10027,6 @@ var SlipGoods = React.createClass({
                 _self.setState({
                     left: diffValue
                 });
-                console.log(_self.state.left);
                 (0, _nZepto2.default)(document).on('touchend', function () {
                     record = diffValue;
                     if (moveLeft < wid && moveLeft > 0) {
