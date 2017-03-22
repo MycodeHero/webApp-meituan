@@ -30,7 +30,7 @@ var DiscountItem = React.createClass({
             rows.push(<li key={index} style={{background:'url(' + ele.imgSrc + ') 0% 0%/ 100% 100%'}}>
                 <div className={'dis-text'}>
                     <h4>{ele.text}</h4>
-                    <p>{ele.discount}</p>
+                    <p style={ele.spe?{background:'#fc3'}:{}}>{ele.discount}</p>
                 </div>
             </li>)
         })
@@ -67,7 +67,7 @@ var DiscountItem = React.createClass({
 var Discount = React.createClass({
     render: function(){
         return (
-            <div>
+            <div className={'discount'}>
                 <Title/>
                 <DiscountItem kindItem = {this.props.data}/>
             </div>

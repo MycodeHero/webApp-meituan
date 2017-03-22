@@ -1,7 +1,7 @@
 require('../less/init.less');
 require('../less/index.less');
-import $ from 'n-zepto'
 var Discount = require('./component/component0-2/Discount.js');
+var SlipGoods = require('./component/component0-2/SlipGoods.js');
 var React = require('react');
 var ReactDom = require('react-dom');
 var data = [
@@ -12,7 +12,27 @@ var data = [
     {text: '超级折扣菜', discount: '劲爆折扣', big: false, imgSrc:'./src/img/page0/page0-2/4.png'}
 ]
 
+var kind = [
+    {title:"初春美味搭", msg:'5折肆意吃', imgSrc:'./src/img/page0/page0-2/13.png'},
+    {title:"大额满减", msg:'劲爆8折封顶', imgSrc:'./src/img/page0/page0-2/5.png'},
+    {title:"每日上新", msg:'超值5折享', imgSrc:'./src/img/page0/page0-2/10.png'},
+    {title:"7折满减", msg:'好店必点', imgSrc:'./src/img/page0/page0-2/11.png'},
+    {title:"春日宜吃素", msg:'乐享新生活', imgSrc:'./src/img/page0/page0-2/12.png'},
+    {title:"草莓尖货节", msg:'香甜正当时', imgSrc:'./src/img/page0/page0-2/7.png'},
+    {title:"柑橘尖货节", msg:'维C不能停', imgSrc:'./src/img/page0/page0-2/8.png'},
+    {title:"果切尖货节", msg:'直选现切现卖', imgSrc:'./src/img/page0/page0-2/6.png'},
+]
+var Module02 = React.createClass({
+    render: function(){
+        return(
+            <div>
+                <Discount data={this.props.data}/>
+                <SlipGoods data={this.props.kind}/>
+            </div>
+        )
+    }
+})
 ReactDom.render(
-    <Discount data={data}/>,
+    <Module02 data={data} kind={kind}/>,
     document.getElementsByClassName('prefecture')[0]
 )
