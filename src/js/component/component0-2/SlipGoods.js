@@ -27,7 +27,7 @@ var SlipGoods = React.createClass({
         $('.kind').on('touchstart',function(e){
             var initPosW = e.touches[0].clientX;
             var target = $('.kind')[0];
-            var u = 0.3;
+            var u = 0.5;
             $(document).on('touchmove', function(e){ 
                 var icurPosW = e.touches[0].clientX;
                 var diffValue = icurPosW - initPosW + record;
