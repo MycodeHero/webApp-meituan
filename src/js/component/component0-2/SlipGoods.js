@@ -1,57 +1,59 @@
-import $ from 'n-zepto'
 require('../../../less/less0-2/SlipGoods.less')
+//引入zepto模块依赖
+import $ from 'n-zepto'
+
+//引入食物列表组件
+var Foodlist = require('./Foodlist.js')
+
+//引入React模块依赖
 var React = require('react');
 
 
+var SlipItem = React.createClass({
+    componentWillMount: function(){
+        this.rows = this.props.handleMsg(this.props.kind)
+    },
+    render: function(){
+        return (
+            <Foodlist name = {"kind"} child = {this.rows}/>
+        )
+    }
+})
+
 //横向滚动条
 var SlipGoods = React.createClass({
-    getDefaultProps: function(){
-        return {
-            style: {
-
-            }
-        }
-    },
-    getInitalState: function(){
-        return({
-            left: 0
-        })
-    },
     componentDidMount: function(){
-        var _self = this;
         var record = 0;
-        var moveLeft = 0;
+        var _self = this;
         var wid = $(window).width();
-        var fin = $('.slip').width();
-        var one = wid - fin;
-        $('.kind').on('touchstart',function(e){
+        var uWid = $('.kind').width();
+        var diff = wid - uWid; 
+        var icurLeft = 0;
+        var u = 0.5;
+        $('.kind').on('touchstart', function(e){
             var initPosW = e.touches[0].clientX;
-            var target = $('.kind')[0];
-            var u = 0.5;
-            $(document).on('touchmove', function(e){ 
+            var target = this;
+            target.style.transition = "";
+            $(document).on('touchmove', function(e){
                 var icurPosW = e.touches[0].clientX;
-                var diffValue = icurPosW - initPosW + record;
-                moveLeft = target.offsetLeft;
-                if((moveLeft < wid && moveLeft > 0)){
-                    diffValue *= u
+                icurLeft = icurPosW - initPosW + record;
+                if(icurLeft < wid && icurLeft > 0){
+                    icurLeft *= u;
+                }else if(icurLeft < (wid - uWid) && icurLeft > -(uWid)){
+                    icurLeft = (icurLeft - diff) * u + diff;
                 }
-                if(moveLeft < one && moveLeft > -(fin)){
-                    diffValue = one + (diffValue - one) * u
-                }
-                target.style.left = diffValue + 'px';
-                _self.setState({
-                    left : diffValue
-                });
+                target.style.left = icurLeft + 'px';
                 $(document).on('touchend', function(){
-                    record = diffValue;
-                    if((moveLeft < wid && moveLeft > 0)){
+                    $(document).off('touchmove').off('touchend');
+                    record = icurLeft;
+                    if(record < wid && record > 0){
                         target.style.transition = "left 500ms ease-out";
-                        target.style.left = "0px";
+                        target.style.left = '0px';
                         record = 0;
-                    }else if(moveLeft < one && moveLeft > -(fin)){
+                    }else if(record < diff && record > -(uWid)){
                         target.style.transition = "left 500ms ease-out";
-                        target.style.left = one+"px";
-                        record = one;
+                        target.style.left = diff + 'px';
+                        record = diff;
                     }
                 })
             })
@@ -60,38 +62,13 @@ var SlipGoods = React.createClass({
     render: function(){
         return (
             <div className={'slipGoods'}>
-                <div className={'slip'} style={this.props.style}>
-                    <KindItem kind={this.props.data}/>
+                <div className={'slip'}>
+                    <SlipItem kind={this.props.data} handleMsg={this.props.handleMsg}/>
                 </div>
             </div>
         )
     }
 })
 
-var KindItem = React.createClass({
-    componentWillMount: function(){
-        var kind = this.props.kind;
-        var rows = [];
-        var _self = this;
-        kind.forEach(function(ele, index){
-            rows.push(<li key={index + 1000} style={{background:'url('+ ele.imgSrc +') 0% 0%/100% 100%'}}>
-                <div>
-                    <h5>{ele.title}</h5>
-                    <p>{ele.msg}</p>
-                </div>
-            </li>)
-        })
-        this.rows = rows;
-    },
-    render: function(){
-        return (
-            <ul className={"kind"}>
-                {
-                    this.rows
-                }
-            </ul>
-        )
-    }
-})
 
 module.exports = SlipGoods

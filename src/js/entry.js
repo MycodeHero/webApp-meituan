@@ -1,5 +1,7 @@
+import $ from 'n-zepto'
 require('../less/init.less');
 require('../less/index.less');
+var handleMsg = require('./component/component0-2/common.js')
 var Discount = require('./component/component0-2/Discount.js');
 var SlipGoods = require('./component/component0-2/SlipGoods.js');
 var Favor = require('./component/component0-2/Favor.js');
@@ -7,11 +9,11 @@ var Trait = require('./component/component0-2/Trait.js');
 var React = require('react');
 var ReactDom = require('react-dom');
 var data = [
-    {text: '用心早餐', discount: '不止八折', big: true, imgSrc:'./src/img/page0/page0-2/0.png'},
-    {text: '天天满减', discount: '优惠想不停', big: false, imgSrc:'./src/img/page0/page0-2/1.png'},
-    {text: '披萨专场', discount: '资本主义美食', big: false, imgSrc:'./src/img/page0/page0-2/2.png'},
-    {text: '领券中心', discount: '可叠加使用', spe:true, big: false, imgSrc:'./src/img/page0/page0-2/3.png'},
-    {text: '超级折扣菜', discount: '劲爆折扣', big: false, imgSrc:'./src/img/page0/page0-2/4.png'}
+    {title: '用心早餐', msg: '不止八折', big: true, imgSrc:'./src/img/page0/page0-2/0.png'},
+    {title: '天天满减', msg: '优惠想不停', big: false, imgSrc:'./src/img/page0/page0-2/1.png'},
+    {title: '披萨专场', msg: '资本主义美食', big: false, imgSrc:'./src/img/page0/page0-2/2.png'},
+    {title: '领券中心', msg: '可叠加使用', spe:true, big: false, imgSrc:'./src/img/page0/page0-2/3.png'},
+    {title: '超级折扣菜', msg: '劲爆折扣', big: false, imgSrc:'./src/img/page0/page0-2/4.png'}
 ]
 
 var kind = [
@@ -39,20 +41,33 @@ var trait = [
     {title:"精品套餐", imgSrc:'./src/img/page0/page0-2/21.png'},
     {title:"点评高分", imgSrc:'./src/img/page0/page0-2/20.png'}
 ]
+
+$.ajax({
+    type: 'GET',
+    url: 'http://localhost:3000/data/read?type=it&callback=?',
+    dataType: 'jsonp',
+    success: function(data){
+        console.log(JSON.parse(data));
+    },
+    error: function(){
+        console.log('error')
+    }
+})
+
 var Module02 = React.createClass({
     render: function(){
 
         return(
             <div>
-                <Discount data={this.props.data}/>
-                <SlipGoods data={this.props.kind}/>
-                <Favor data={this.props.favor}/>
-                <Trait data={this.props.trait}/>
+                <Discount data={this.props.data} handleMsg = {this.props.handleMsg}/>
+                <SlipGoods data={this.props.kind} handleMsg = {this.props.handleMsg}/>
+                <Favor data={this.props.favor} handleMsg = {this.props.handleMsg}/>
+                <Trait data={this.props.trait} handleMsg = {this.props.handleMsg}/>
             </div>
         )
     }
 })
 ReactDom.render(
-    <Module02 data={data} kind={kind} favor = {favor} trait={trait}/>,
+    <Module02 data={data} kind={kind} favor = {favor} trait={trait} handleMsg={handleMsg}/>,
     document.getElementsByClassName('prefecture')[0]
 )

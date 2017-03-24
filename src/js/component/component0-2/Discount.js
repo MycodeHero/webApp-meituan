@@ -1,62 +1,28 @@
 require('../../../less/less0-2/Discount.less')
+
+//引入Title组件
+var Title = require('./Title.js')
+
+//引入食物列表组件
+var Foodlist = require('./Foodlist.js');
+
 //引入react的模块依赖
 var React = require('react');
-
-//标题组件
-var Title = React.createClass({
-    getDefaultProps: function(){
-        return {
-            style: {
-                width:'100%',
-                height:'33px',
-                lineHeight:'33px',
-                fontWeight:550,
-            }
-        }
-    },
-    render: function(){
-         return (
-            <p style={{textAlign:'center',paddingTop:'9px'}}>— <span style={this.props.style}>优惠专区</span> —</p>
-        )
-    }
-})
 
 //优惠种类组件
 var DiscountItem = React.createClass({
     componentWillMount: function(){
-        var kind = this.props.kindItem;
-        var rows = [];
-        kind.forEach(function(ele, index){
-            rows.push(<li key={index} style={{background:'url(' + ele.imgSrc + ') 0% 0%/ 100% 100%'}}>
-                <div className={'dis-text'}>
-                    <h4>{ele.text}</h4>
-                    <p style={ele.spe?{background:'#fc3'}:{}}>{ele.discount}</p>
-                </div>
-            </li>)
-        })
-        this.rows = rows;
+        this.rows = this.props.handleMsg(this.props.kindItem, 'dis-text')
     },
     render: function(){
         return (
             <div style={{display:'flex'}}>
                 <div className={'dis-left'}>
-                    <ul>
-                        {
-                            this.rows.slice(0, 1)
-                        }
-                    </ul>
+                    <Foodlist child = {this.rows.slice(0, 1)}/>
                 </div>
                 <div className={'dis-right'}>
-                    <ul className={'layout'}>
-                        {
-                            this.rows.slice(1, 3)
-                        }
-                    </ul>
-                    <ul className={'layout'}>
-                        {
-                            this.rows.slice(3, 5)
-                        }
-                    </ul>
+                    <Foodlist child = {this.rows.slice(1, 3)}/>
+                    <Foodlist child = {this.rows.slice(3, 5)}/>
                 </div>
             </div>
         )
@@ -68,8 +34,8 @@ var Discount = React.createClass({
     render: function(){
         return (
             <div className={'discount'}>
-                <Title/>
-                <DiscountItem kindItem = {this.props.data}/>
+                <Title content={"优惠专区"}/>
+                <DiscountItem kindItem = {this.props.data} handleMsg = {this.props.handleMsg}/>
             </div>
         )
     }

@@ -1,48 +1,22 @@
 require('../../../less/less0-2/Trait.less')
+
+//引入Title组件
+var Title = require('./Title');
+
+//引入食物列表组件
+var Foodlist = require('./Foodlist.js')
+
 //引入react的模块依赖
 var React = require('react');
 
-//标题组件
-var Title = React.createClass({
-    getDefaultProps: function(){
-        return {
-            style: {
-                width:'100%',
-                height:'33px',
-                lineHeight:'33px',
-                fontWeight:550,
-            }
-        }
-    },
-    render: function(){
-         return (
-            <p style={{textAlign:'center',paddingTop:'9px'}}>— <span style={this.props.style}>为你优选</span> —</p>
-        )
-    }
-})
-
 //优惠种类组件
-var DiscountItem = React.createClass({
+var TrialItem = React.createClass({
     componentWillMount: function(){
-        var kind = this.props.trait;
-        var rows = [];
-        kind.forEach(function(ele, index){
-            rows.push(<li key={index} style={{background:'url(' + ele.imgSrc + ') 0% 0%/100% 100%'}}>
-                    <div>
-                        <h5>{ele.title}</h5>
-                    </div>
-            </li>)
-        })
-        this.rows = rows;
+        this.rows = this.props.handleMsg(this.props.trait)
     },
     render: function(){
         return (
-            <div className="trait-wrap">
-                <ul className={'trait-item'}>{
-                        this.rows
-                    }
-                </ul>
-            </div>
+            <Foodlist child = {this.rows}/>
         )
     }
 })
@@ -52,8 +26,8 @@ var Triat = React.createClass({
     render: function(){
         return (
             <div className={'trait'}>
-                <Title/>
-                <DiscountItem trait = {this.props.data}/>
+                <Title content={"品质专区"}/>
+                <TrialItem trait = {this.props.data} handleMsg={this.props.handleMsg}/>
             </div>
         )
     }
