@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-//文件读取模块
 var fs = require('fs');
 var PATH = './public/data/';
 
@@ -11,7 +10,7 @@ var PATH = './public/data/';
 //data/read?type=it.json
 router.get('/read', function(req, res, next) {
     var type = req.param('type') || ''; //获取url中type的参数 当没有返回''
-    fs.readFile(PATH + type + '.json', 'UTF-8', function(err, data){ //读取文件，第一个参数文件路径， 第二个回调函数
+    fs.readFile(PATH + type + '.json', function(err, data){ //读取文件，第一个参数文件路径， 第二个回调函数
         if(err){    //如果有报错对象 则向用户发送错误信息
             return res.send({
                 status : 0,
@@ -126,7 +125,6 @@ router.post('/del', function(req, res, next){
         })
     })
 })
-
 //阅读写入模块接口
 router.post('/write_config', function(req, res, next){
     if(!req.session.user){

@@ -47,7 +47,7 @@ $.ajax({
     url: 'http://localhost:3000/data/read?type=it&callback=?',
     dataType: 'jsonp',
     success: function(data){
-        console.log(JSON.parse(data));
+        console.log(data);
     },
     error: function(){
         console.log('error')
