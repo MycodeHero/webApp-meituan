@@ -1,0 +1,231 @@
+.wrap-head {
+    .Header {
+        position: relative;
+        height: 26vh;
+    }
+   .slider-wrapper {
+        position: relative;
+        width: 100vw;
+        height: 26vh;
+        margin: 0 auto;
+        overflow: hidden;
+        
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 500vw;
+            height: 26vh;
+        }
+        ul li {
+            float: left; 
+            width: 100vw;
+            height: 26vh;
+        }
+        ul li img {
+            width: 100vw;
+            height: 26vh;
+        }
+        .slider-index {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 250px;
+            margin-left: -125px;
+            text-align: center;
+        }
+        .slider-index i {
+            display: inline-block;
+            background: #e1e1e1;
+            width: 4px;
+            height: 4px;
+            margin-left: 10px;
+        }
+        .slider-index .active {
+        background: orange;
+        }
+    }
+}
+
+.search {
+    position: fixed;
+    z-index: 1000;
+    top: 6px;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    display: flex;
+
+    .searchLeft {
+        position: relative;
+        flex: 1;
+        height: 100%;
+        margin: 0 4px;
+        padding: 0 6px;
+        color: #fff;
+        background: rgba(0, 0, 0, .3);
+        border-radius: 20px;
+
+        .address-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('../../img/page0/page0-1/address-icon2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+        
+        .address {
+            vertical-align: middle;
+            font-size: 1em;
+        }
+
+        .more {
+            position: absolute;
+            right: 7px;
+            margin-top: 3px;
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-image: url('../../img/page0/page0-1/more-icon.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+    }
+
+    .searchRight {
+        flex: 1;
+        height: 100%;
+        margin: 0 4px;
+        padding: 0 6px;
+        color: grey;
+        background: #fff;
+        border-radius: 50%;
+        border-radius: 15px;
+
+        .find {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-top: -1px;
+            background-image: url('../../img/page0/page0-1/find-icon.jpg');
+            background-size: cover;
+            background-repeat: no-repeat; 
+            vertical-align: middle;
+        }
+
+        .goods {
+            vertical-align: middle;
+            font-size: 14px;
+        }
+    }
+}
+
+.searchFixed{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    
+    .searchInner{
+        height: 26px;
+        line-height: 26px;
+        margin: 7px 6px;
+        border-radius: 12px;
+        text-align: center;
+        background: #e6e6e6;
+        color: #a1a1a1;
+    }
+    .find {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-top: -5px;
+        background-image: url('../../img/page0/page0-1/search.jpg');
+        background-size: cover;
+        background-repeat: no-repeat; 
+        vertical-align: middle;
+    }
+}
+
+.sliderMask {
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 20px;
+    z-index: 1000;
+}
+
+.navRow {
+    display: flex;
+    padding-top: 10px;
+
+    li {
+        flex: 1;
+
+        .item-img {
+            width: 100%;
+            height: 9vh;
+            background-repeat: no-repeat;
+        }
+
+        .item-text {
+            text-align: center;
+            overflow: hidden;
+            font-size: 1em;
+        }
+    }
+}
+
+.navWrap {
+    position: relative;
+    background: #fff;
+    width: 100vw;
+    height: 30vh;
+    overflow: hidden;
+    .nav{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200vw;
+        overflow: hidden;
+
+        .navOne{
+            width: 100vw;
+            float: left;
+        }
+
+        .navTwo{
+            width: 100vw;
+            float: left;
+        }
+    }
+    .dot {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+            text-align: center;
+        }
+        .dot i {
+            display: inline-block;
+            background: #e1e1e1;
+            width: 4px;
+            height: 4px;
+            margin-left: 10px;
+        }
+        .dot .active {
+            background: orange;
+        }
+}
+
+body {
+    height: 2000px;
+}

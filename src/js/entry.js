@@ -1,6 +1,8 @@
 import $ from 'n-zepto'
 require('../less/init.less');
 require('../less/index.less');
+var component01 = require('./component/component0-1/component0-1.js');
+var slider = require('./component/component0-1/slider.js');
 var handleMsg = require('./component/component0-2/common.js')
 var Discount = require('./component/component0-2/Discount.js');
 var SlipGoods = require('./component/component0-2/SlipGoods.js');
