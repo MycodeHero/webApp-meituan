@@ -1,4 +1,3 @@
-require('../../../less/less0-2/Title.less')
 //引入React模块
 var React = require('react');
 
@@ -12,3 +11,4 @@ var Title = React.createClass({
 })
 
 module.exports = Title;
+

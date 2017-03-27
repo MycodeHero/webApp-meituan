@@ -31,7 +31,7 @@ router.get('/read', function(req, res, next) {
         }
         return res.send({
             status : 1,
-            data : obj
+            data: obj
         })
     })
 });
