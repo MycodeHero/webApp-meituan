@@ -172,7 +172,9 @@ var Restaurant = React.createClass({
     switchRestMsg: function(){
         $('.store-msg').css("left", "0%");
         $('.store-show').css("left","-25%");
-        $('.wrap-header').css("display", "none")
+        $('.wrap-header').css("display", "none");
+        var wheight = $(window).height();
+        $(document.body).css({'height': wheight, 'overflow':'hidden'})
         window.scrollTo(0, 0);
     },
     render:function (){
@@ -222,7 +224,7 @@ var Data = [
     {
         name:'加薪饭馆最好吃最好吃最好吃最好吃',
         id:2,
-        image:'/2.jpg',
+        image:'\/2.jpg',
         rate:7,
         proceedPM:2080,
         distance:908,
@@ -243,7 +245,7 @@ var Data = [
     {
         name:'兴旺餐馆',
         id:3,
-        image:'/3.jpg',
+        image:'\/3.jpg',
         rate:5,
         proceedPM:908,
         distance:567,
@@ -276,7 +278,7 @@ var Data = [
     {
         name:'九转小磨',
         id:4,
-        image:'/4.jpg',
+        image:'\/4.jpg',
         rate:6,
         proceedPM:2346,
         distance:789,
@@ -293,7 +295,7 @@ var Data = [
     {
         name:'大盘鸡',
         id:5,
-        image:'/5.jpg',
+        image:'\/5.jpg',
         rate:7.8,
         proceedPM:789,
         distance:234,
@@ -314,7 +316,7 @@ var Data = [
     {
         name:'天天麻辣烫',
         id:6,
-        image:'/6.jpg',
+        image:'\/6.jpg',
         rate:9,
         proceedPM:2341,
         distance:890,
@@ -343,7 +345,7 @@ var Data = [
     {
         name:'东北炖菜香',
         id:7,
-        image:'/7.jpg',
+        image:'\/7.jpg',
         rate:4,
         proceedPM:790,
         distance:237,
@@ -360,7 +362,7 @@ var Data = [
     {
         name:'重庆小面',
         id:8,
-        image:'/8.jpg',
+        image:'\/8.jpg',
         rate:8.6,
         proceedPM:1000,
         distance:300,
@@ -381,7 +383,7 @@ var Data = [
     {
         name:'千纸鹤烤肉',
         id:9,
-        image:'/9.jpg',
+        image:'\/9.jpg',
         rate:6,
         proceedPM:1908,
         distance:908,
@@ -398,7 +400,7 @@ var Data = [
     {
         name:'小木屋',
         id:10,
-        image:'/10.jpg',
+        image:'\/10.jpg',
         rate:9.4,
         proceedPM:3029,
         distance:890,
