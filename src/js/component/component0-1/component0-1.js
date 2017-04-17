@@ -301,10 +301,10 @@ var startPosition, endPosition, deltaX, deltaY, moveLength;
         var posY = $('.slider-wrapper').height() - $('.sliderMask').height();
         if (disY > posY) {
             $('.search').hide();
-            $('.searchFixed').show();
+            $('.searchFixed').show().css('width', '100%');
         } 
         if (disY < posY) {
-            $('.searchFixed').hide();
+            $('.searchFixed').hide().css('width', '0%');
             $('.search').show();
         }
     });

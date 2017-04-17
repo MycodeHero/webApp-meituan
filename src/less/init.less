@@ -10,5 +10,83 @@ html,body{
     background:#f4f4f4;
 }
 form,ul,ol,li,dl,dt,dd { margin: 0; padding: 0; }
-li { list-style-type:none; }
+li { list-style:none; }
 img { border: none; }
+
+#appWrap{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    .store{
+        position:relative;
+        width:200%;
+        height:100%;
+        .store-show{
+            position:absolute;
+            top:0;
+            left:0;
+            width:50%;
+            height:100%;
+            .wrap-head{
+                width:100%;
+            }
+            transition:left 400ms ease-in;
+        }
+        .store-msg{
+            position:absolute;
+            top:0;
+            left:50%;
+            width:50%;
+            height:100%;
+            background-color:green;
+            transition:left 200ms ease-in;
+            .msg-top{
+                position:relative;
+                width:100%;
+                height:150px;
+                background:red;
+                z-index:1;
+            }
+            .msg-list{
+                position:relative;
+                 width:100%;
+                height:38px;
+                background:white;
+                border-bottom:1px solid #e6e6e6;
+                ul{
+                    display:flex;
+                    li{
+                        list-style:none;
+                        flex-grow:1;
+                        line-height:38px;
+                        font-size:14px;
+                        text-align:center;
+                    }
+                }
+                .square{
+                    position:absolute;
+                    width:43px;
+                    height:8px;
+                    background:#fdd35a;
+                    bottom:0;
+                    left:48px;//185, 323
+                }
+            }
+            .msg-center{
+                width:300%;
+                height:100%;
+                background:yellow;
+                .msg-content{
+                    display:flex;
+                    width:100%;
+                    height:100%;
+                    div{
+                        float:left;
+                        flex-grow:1/3;
+                        height:100%;
+                    }
+                }
+            }
+        }
+    }
+}

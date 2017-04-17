@@ -128,18 +128,19 @@
     position: fixed;
     z-index: 1000;
     top: 0;
-    width: 100%;
+    right:0;
+    width: 0%;
     height: 40px;
-    background: #fff;
+    background: rgba(255,255,255, 0.8);
     border-bottom: 1px solid #e1e1e1;
-    
+    transition:width 1s linear;
     .searchInner{
         height: 26px;
         line-height: 26px;
         margin: 7px 6px;
         border-radius: 12px;
         text-align: center;
-        background: #e6e6e6;
+        background: rgba(128, 138, 125, 0.5);
         color: #a1a1a1;
     }
     .find {
