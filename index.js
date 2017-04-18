@@ -23040,6 +23040,7 @@ var Component11 = React.createClass({
 		);
 	}
 });
+
 ReactDom.render(React.createElement(Component11, { data: data }), $('.shop-list')[0]);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
@@ -37646,7 +37647,7 @@ __webpack_require__(86);
 var component01 = __webpack_require__(87);
 var component02 = __webpack_require__(88);
 var component03 = __webpack_require__(89);
-var component03 = __webpack_require__(90);
+var component11 = __webpack_require__(90);
 
 /***/ })
 /******/ ]);

@@ -1,22 +1,5 @@
 var React = require('react');
 var ReactDom = require('react-dom');
-<<<<<<< HEAD
-require('../../../less/less1-1/less1-1.less')
-
-var data = [{
-				 "热销":[],
-				 "折扣":[], 
-				 "拌饭系列":[], 
-				 "盖浇饭系列":[], 
-				 "三生三世新品套餐":[], 
-				 "精选套餐":[],
-				 "炸串系列":[],
-				 "点单系列":[],
-				 "小菜系列":[],
-				 "饮品":[]
-			}]
-var Kind = React.createClass({
-=======
 var touchMove = require('../../common/touchMove.js')
 require('../../../less/less1-1/less1-1.less')
 
@@ -141,18 +124,11 @@ var data = [{
 
 
 var KindList = React.createClass({
->>>>>>> dev
 	componentWillMount: function(){
 		var kindItem = this.props.data[0];
 		var item = [];
 		var count = 0;
 		for(var props in kindItem){
-<<<<<<< HEAD
-			item.push(<li key = {count++}>{props}</li>)
-		}
-		this.item = item;
-	},
-=======
 			item.push(<li key = {count++}><p>{props}</p></li>)
 		}
 		this.item = item;
@@ -160,7 +136,6 @@ var KindList = React.createClass({
 	componentDidMount: function(){
 		touchMove($('.item'), 'up', 0.1)
 	},
->>>>>>> dev
 	render: function(){
 		return (
 			<div className="kind-list">
@@ -172,12 +147,6 @@ var KindList = React.createClass({
 	}
 })
 
-<<<<<<< HEAD
-var Component11 = React.createClass({
-	render: function(){
-		return (
-			<Kind data = {this.props.data}/>
-=======
 
 var List = React.createClass({
 	render: function(){
@@ -263,10 +232,11 @@ var Component11 = React.createClass({
 				<FoodList data = {this.props.data}/>
 				<Bottom/>
 			</div>
->>>>>>> dev
 		)
 	}
 })
+
+
 ReactDom.render(
 	<Component11 data = {data}/>,
 	$('.shop-list')[0]
