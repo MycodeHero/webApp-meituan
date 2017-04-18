@@ -1,5 +1,5 @@
 require('../../../less/less0-2/less0-2.less')
-
+var touchMove = require('../../common/touchMove.js')
 //引入Title组件
 var Title = require('./Title.js')
 
@@ -146,7 +146,7 @@ var SlipItem = React.createClass({
 var SlipGoods = React.createClass({
     componentDidMount: function(){
         //引入touchMove事件
-        require('./touchMove.js')
+       touchMove($('.kind'), 'cross')
     },
     render: function(){
         return (
