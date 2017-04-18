@@ -170,11 +170,13 @@ var Restaurant = React.createClass({
         this.row = row;
     },
     switchRestMsg: function(){
-        $('.store-msg').css("left", "0%");
         $('.store-show').css("left","-25%");
         $('.wrap-header').css("display", "none");
         var wheight = $(window).height();
+        var msgHeight = wheight - 189;
         $(document.body).css({'height': wheight, 'overflow':'hidden'})
+        $('.store-msg').css({"left": "0%"});
+         $('.food-msg').css({"height": msgHeight});
         window.scrollTo(0, 0);
     },
     render:function (){

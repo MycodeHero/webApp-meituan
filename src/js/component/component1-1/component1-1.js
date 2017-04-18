@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDom = require('react-dom');
+var touchMove = require('../../common/touchMove.js')
 require('../../../less/less1-1/less1-1.less')
 
 var data = [{
@@ -120,6 +121,8 @@ var data = [{
 					{"name": "豆皮肉卷拌饭+香嫩鸡排+250ml小饮料", "msg": "豆皮肉卷+精选小菜+米饭+香嫩鸡排+250ml饮料", "month": 45, "like": 2, "price": 30},
 				 ]
 			}]
+
+
 var KindList = React.createClass({
 	componentWillMount: function(){
 		var kindItem = this.props.data[0];
@@ -129,6 +132,9 @@ var KindList = React.createClass({
 			item.push(<li key = {count++}><p>{props}</p></li>)
 		}
 		this.item = item;
+	},
+	componentDidMount: function(){
+		touchMove($('.item'), 'up', 0.1)
 	},
 	render: function(){
 		return (
@@ -140,6 +146,8 @@ var KindList = React.createClass({
 		)
 	}
 })
+
+
 var List = React.createClass({
 	render: function(){
 		var data = this.props.data;
@@ -171,10 +179,13 @@ var FoodList = React.createClass({
 		}
 		this.item = item;
 	},
+	componentDidMount: function(){
+		touchMove($('.foodItem'), 'up', 0.1)
+	},
 	render: function(){
 		return(
-			<div className="foot-list">
-				<ul>
+			<div className="food-list">
+				<ul className="foodItem">
 					{this.item}
 				</ul>
 			</div>
@@ -182,11 +193,28 @@ var FoodList = React.createClass({
 	}
 })
 
+var ShopCart = React.createClass({
+	render: function(){
+		return (
+			<div className="circle"></div>
+		)
+	}
+})
 
+var Cost = React.createClass({
+	render: function(){
+		return (
+			<div className="sum">￥0起送</div>
+		)
+	}
+})
 var Bottom = React.createClass({
 	render: function(){
 		return(
-			<div className="btm"></div>
+			<div className="btm">
+				<ShopCart/>
+				<Cost/>
+			</div>
 		)
 	}
 })
@@ -195,7 +223,7 @@ var Bottom = React.createClass({
 var Component11 = React.createClass({
 	componentDidMount: function(){
 		var wHeight = $(window).height();
-		$('.food-msg').css('height', wHeight)
+		$('.food-msg').css('height', wHeight);
 	},
 	render: function(){
 		return (
